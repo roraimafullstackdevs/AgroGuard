@@ -13,14 +13,14 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/ocorrencia")
-public class OcorrenciaMain {
+public class OcorrenciaController {
 
     @Autowired
     private OcorrenciaService ocorrenciaService;
 
     @PostMapping("/{id}")
-    public ResponseEntity<Ocorrencia> create(@PathVariable("id") UUID tecnicoUUID, @RequestBody Ocorrencia ocorrencia) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(ocorrenciaService.saveOcorrencia(ocorrencia,tecnicoUUID));
+    public ResponseEntity<Ocorrencia> create(@PathVariable("id") UUID tecnicoUUID, @RequestBody Ocorrencia ocorrencia, @RequestParam String encodeFoto) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(ocorrenciaService.saveOcorrencia(ocorrencia,tecnicoUUID, encodeFoto));
     }
 
     @GetMapping("/{id}")

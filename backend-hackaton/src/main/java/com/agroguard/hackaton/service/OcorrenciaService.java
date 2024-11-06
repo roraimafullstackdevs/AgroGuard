@@ -29,10 +29,11 @@ public class OcorrenciaService {
         return ocorrenciaRepository.findAll();
     }
 
-    public Ocorrencia saveOcorrencia(Ocorrencia ocorrencia, UUID tecnicoUUID) {
+    public Ocorrencia saveOcorrencia(Ocorrencia ocorrencia, UUID tecnicoUUID, String encodeFoto) {
         Optional<Tecnico> tecnico = tecnicoRepository.findById(tecnicoUUID);
         if(!tecnico.isPresent())
             throw new NotFoundException("Nenhum técnico encontrado");
+        ocorrencia.setFotoOcorrencia(Base64.getDecoder().decode(encodeFoto));
         ocorrencia.setTecnico(tecnico.get());
         return ocorrenciaRepository.save(ocorrencia);
     }
