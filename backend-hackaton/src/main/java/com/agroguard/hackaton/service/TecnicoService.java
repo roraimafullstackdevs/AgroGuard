@@ -1,7 +1,6 @@
 package com.agroguard.hackaton.service;
 
 import com.agroguard.hackaton.exception.NotFoundException;
-import com.agroguard.hackaton.model.Produtor;
 import com.agroguard.hackaton.model.Tecnico;
 import com.agroguard.hackaton.repository.TecnicoRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -9,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.NotActiveException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
