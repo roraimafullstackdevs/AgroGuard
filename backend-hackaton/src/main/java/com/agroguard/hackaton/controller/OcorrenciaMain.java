@@ -2,7 +2,6 @@ package com.agroguard.hackaton.controller;
 
 import com.agroguard.hackaton.exception.NotFoundException;
 import com.agroguard.hackaton.model.Ocorrencia;
-import com.agroguard.hackaton.model.Tecnico;
 import com.agroguard.hackaton.service.OcorrenciaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
