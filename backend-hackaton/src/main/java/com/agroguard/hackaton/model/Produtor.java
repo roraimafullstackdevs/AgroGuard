@@ -27,4 +27,11 @@ public class Produtor {
     private String email;
     private String celular;
     private String cultivo;
+
+    private Float latitude;
+
+    private Float longitude;
+
+    private String complemento;
+
 }
