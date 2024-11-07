@@ -1,16 +1,14 @@
 package com.agroguard.hackaton.model.enums;
 
 public enum Status {
-    LIVRE("Livre"),ATENCAO("Atenção"),ALERTA("Alerta");
+    LIVRE("Livre"),ATENCAO("Atenção"),ALERTA("Alerta"),EM_PROCESSAMENTO("Em Processamento");
 
     private final String descricao;
 
-    // Construtor da enumeração
     Status(String descricao) {
         this.descricao = descricao;
     }
 
-    // Método para obter a descrição do status
     public String getDescricao() {
         return descricao;
     }
