@@ -18,8 +18,8 @@ public class OcorrenciaController {
     @Autowired
     private OcorrenciaService ocorrenciaService;
 
-    @PostMapping("/{id}")
-    public ResponseEntity<Ocorrencia> create(@PathVariable("id") UUID tecnicoUUID, @RequestBody Ocorrencia ocorrencia, @RequestParam String encodeFoto) {
+    @PostMapping("/{tecnicoUUID}")
+    public ResponseEntity<Ocorrencia> create(@PathVariable UUID tecnicoUUID, @RequestBody Ocorrencia ocorrencia, @RequestParam String encodeFoto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(ocorrenciaService.saveOcorrencia(ocorrencia,tecnicoUUID, encodeFoto));
     }
 
