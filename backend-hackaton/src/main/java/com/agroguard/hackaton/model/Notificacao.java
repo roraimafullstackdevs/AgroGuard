@@ -7,6 +7,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.time.LocalDate;
 import java.util.UUID;
 
 @Data
@@ -30,5 +31,7 @@ public class Notificacao {
     private Float latitude;
 
     private Float longitude;
+
+    private LocalDate dataCriacao;
 
 }
