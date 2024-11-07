@@ -3,5 +3,5 @@ AgroGuard é uma solução inovadora destinada a aprimorar a fiscalização sani
 
 
 ## Tecnologias utilizadas
-Java, Spring, Postgres, Kotlin
+Java, Spring, Postgres, Kotlin.
 
