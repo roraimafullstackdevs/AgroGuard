@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -23,6 +24,11 @@ public class NotificacaoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Notificacao> getNotificacao(@PathVariable("id") UUID notificacaoUUID) {
-        return ResponseEntity.status(HttpStatus.CREATED).body(notificacaoService.findById(notificacaoUUID));
+        return ResponseEntity.status(HttpStatus.OK).body(notificacaoService.findById(notificacaoUUID));
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<Notificacao>> getAllNotificacoes() {
+        return ResponseEntity.status(HttpStatus.CREATED).body(notificacaoService.getAll());
     }
 }
