@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center_vertical">
+
+    <!-- EditText for Tecnico ID -->
+    <EditText
+        android:id="@+id/editTextTecnicoId"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="ID"
+        android:inputType="number" />
+
+    <!-- EditText for Nome -->
+    <EditText
+        android:id="@+id/editTextNome"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Nome"
+        android:inputType="textPersonName" />
+
+    <!-- EditText for Crea -->
+    <EditText
+        android:id="@+id/editTextCrea"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Crea"
+        android:inputType="text" />
+
+    <!-- EditText for CPF -->
+    <EditText
+        android:id="@+id/editTextCpf"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="CPF"
+        android:inputType="number" />
+
+    <!-- EditText for Email -->
+    <EditText
+        android:id="@+id/editTextEmail"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Email"
+        android:inputType="textEmailAddress" />
+
+    <!-- EditText for Senha -->
+    <EditText
+        android:id="@+id/editTextSenha"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Senha"
+        android:inputType="textPassword" />
+
+    <!-- EditText for Instituicao -->
+    <EditText
+        android:id="@+id/editTextInstituicao"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:hint="Instituicao"
+        android:inputType="text" />
+
+    <!-- TextView for messages -->
+    <TextView
+        android:id="@+id/textViewMessage"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Message"
+        android:gravity="center"
+        android:textColor="#FF0000"
+        android:visibility="gone"
+        android:layout_marginTop="16dp" />
+
+    <!-- Add Button -->
+    <Button
+        android:id="@+id/buttonAddTecnico"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Add Tecnico"
+        android:layout_marginTop="16dp" />
+
+    <!-- Update Button -->
+    <Button
+        android:id="@+id/buttonUpdateTecnico"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Update Tecnico"
+        android:layout_marginTop="8dp" />
+
+    <!-- Delete Button -->
+    <Button
+        android:id="@+id/buttonDeleteTecnico"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:text="Delete Tecnico"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
