@@ -1,6 +1,6 @@
 package com.agroguard.hackaton.service;
 
-import com.agroguard.hackaton.exception.NotFoundException;
+import com.agroguard.hackaton.exception.NegocioException;
 import com.agroguard.hackaton.model.Ocorrencia;
 import com.agroguard.hackaton.model.Tecnico;
 import com.agroguard.hackaton.repository.OcorrenciaRepository;
@@ -32,7 +32,7 @@ public class OcorrenciaService {
     public Ocorrencia saveOcorrencia(Ocorrencia ocorrencia, UUID tecnicoUUID, String encodeFoto) {
         Optional<Tecnico> tecnico = tecnicoRepository.findById(tecnicoUUID);
         if(!tecnico.isPresent())
-            throw new NotFoundException("Nenhum técnico encontrado");
+            throw new NegocioException("Nenhum técnico encontrado");
         ocorrencia.setFotoOcorrencia(Base64.getDecoder().decode(encodeFoto));
         ocorrencia.setTecnico(tecnico.get());
         return ocorrenciaRepository.save(ocorrencia);
@@ -41,7 +41,7 @@ public class OcorrenciaService {
     public Ocorrencia findById(UUID uuid) throws NotActiveException {
         Optional<Ocorrencia> ocorrencia = ocorrenciaRepository.findById(uuid);
         if(!ocorrencia.isPresent())
-            throw new NotFoundException("Nenhum técnico encontrado");
+            throw new NegocioException("Nenhum técnico encontrado");
         return ocorrencia.get();
     }
 
@@ -52,5 +52,15 @@ public class OcorrenciaService {
         BeanUtils.copyProperties(ocorrenciaUpdate, ocorrencia, "id");
 
         return ocorrenciaRepository.save(ocorrencia);
+    }
+
+    public List<Ocorrencia> getAll() {
+        List<Ocorrencia> ocorrencias = ocorrenciaRepository.findAll();
+
+        if(ocorrencias.isEmpty()){
+            throw new NegocioException("Nenhuma Ocorrência foi encontrada");
+        }
+
+        return ocorrencias;
     }
 }

@@ -1,10 +1,8 @@
 package com.agroguard.hackaton.service;
 
-import com.agroguard.hackaton.exception.NotFoundException;
+import com.agroguard.hackaton.exception.NegocioException;
 import com.agroguard.hackaton.model.Notificacao;
-import com.agroguard.hackaton.model.Tecnico;
 import com.agroguard.hackaton.repository.NotificacaoRepository;
-import com.agroguard.hackaton.repository.TecnicoRepository;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,11 +31,19 @@ public class NotificacaoService {
         return notificacaoRepository.save(notificacao);
     }
 
-    public Notificacao findById(UUID uuid) throws NotFoundException {
+    public Notificacao findById(UUID uuid) throws NegocioException {
         Optional<Notificacao> notificacao = notificacaoRepository.findById(uuid);
         if(!notificacao.isPresent())
-            throw new NotFoundException("Nenhum técnico encontrado");
+            throw new NegocioException("Não foi possível localizar a notificação");
         return notificacao.get();
+    }
+
+    public List<Notificacao> getAll() throws NegocioException {
+        List<Notificacao> notificacoes = notificacaoRepository.findAll();
+
+        if(notificacoes.isEmpty())
+            throw new NegocioException("Não foram adicionadas notificações até o momento");
+        return notificacoes;
     }
 
 }

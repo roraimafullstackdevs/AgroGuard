@@ -1,6 +1,6 @@
 package com.agroguard.hackaton.service;
 
-import com.agroguard.hackaton.exception.NotFoundException;
+import com.agroguard.hackaton.exception.NegocioException;
 import com.agroguard.hackaton.model.Produtor;
 import com.agroguard.hackaton.repository.ProdutorRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -8,7 +8,6 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.io.NotActiveException;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -36,10 +35,10 @@ public class ProdutorService {
         return produtorRepository.save(produtor);
     }
 
-    public Produtor findById(UUID uuid) throws NotFoundException {
+    public Produtor findById(UUID uuid) throws NegocioException {
         Optional<Produtor> produtor = produtorRepository.findById(uuid);
         if(!produtor.isPresent())
-            throw new NotFoundException("Nenhum técnico encontrado");
+            throw new NegocioException("Nenhum técnico encontrado");
         return produtor.get();
     }
 

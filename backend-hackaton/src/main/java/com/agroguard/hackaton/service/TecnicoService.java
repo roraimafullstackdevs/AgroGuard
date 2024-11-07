@@ -1,6 +1,6 @@
 package com.agroguard.hackaton.service;
 
-import com.agroguard.hackaton.exception.NotFoundException;
+import com.agroguard.hackaton.exception.NegocioException;
 import com.agroguard.hackaton.model.Tecnico;
 import com.agroguard.hackaton.repository.TecnicoRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -35,10 +35,10 @@ public class TecnicoService {
         return tecnicoRepository.save(tecnico);
     }
 
-    public Tecnico findById(UUID uuid) throws NotFoundException {
+    public Tecnico findById(UUID uuid) throws NegocioException {
         Optional<Tecnico> tecnico = tecnicoRepository.findById(uuid);
         if(!tecnico.isPresent())
-            throw new NotFoundException("Nenhum técnico encontrado");
+            throw new NegocioException("Nenhum técnico encontrado");
         return tecnico.get();
     }
 

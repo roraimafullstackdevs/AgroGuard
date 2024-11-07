@@ -1,7 +1,7 @@
 package com.agroguard.hackaton.controller;
 
 
-import com.agroguard.hackaton.exception.NotFoundException;
+import com.agroguard.hackaton.exception.NegocioException;
 import com.agroguard.hackaton.model.Produtor;
 import com.agroguard.hackaton.service.ProdutorService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,12 +24,12 @@ public class ProdutorController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Produtor> getProdutor(@PathVariable("id") UUID produtorUUID) throws NotFoundException {
-        return ResponseEntity.status(HttpStatus.CREATED).body(produtorService.findById(produtorUUID));
+    public ResponseEntity<Produtor> getProdutor(@PathVariable("id") UUID produtorUUID) throws NegocioException {
+        return ResponseEntity.status(HttpStatus.OK).body(produtorService.findById(produtorUUID));
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<Produtor> updateProdutor(@PathVariable("id") UUID produtorUUID, @RequestBody Produtor produtorUpdate) throws NotFoundException {
+    public ResponseEntity<Produtor> updateProdutor(@PathVariable("id") UUID produtorUUID, @RequestBody Produtor produtorUpdate) throws NegocioException {
         return ResponseEntity.status(HttpStatus.CREATED).body(produtorService.updateProdutor(produtorUUID, produtorUpdate));
     }
 }

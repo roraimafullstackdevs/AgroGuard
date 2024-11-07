@@ -1,7 +1,7 @@
 package com.agroguard.hackaton.controller;
 
 
-import com.agroguard.hackaton.exception.NotFoundException;
+import com.agroguard.hackaton.exception.NegocioException;
 import com.agroguard.hackaton.model.Tecnico;
 import com.agroguard.hackaton.service.TecnicoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,11 +26,11 @@ public class TecnicoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<Tecnico> getTecnico(@PathVariable("id") UUID tecnicoUUID) throws NotActiveException {
-        return ResponseEntity.status(HttpStatus.CREATED).body(tecnicoService.findById(tecnicoUUID));
+        return ResponseEntity.status(HttpStatus.OK).body(tecnicoService.findById(tecnicoUUID));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Tecnico> updateTecnico(@PathVariable("id") UUID tecnicoUUID, @RequestBody Tecnico tecnicoNew) throws NotFoundException {
+    public ResponseEntity<Tecnico> updateTecnico(@PathVariable("id") UUID tecnicoUUID, @RequestBody Tecnico tecnicoNew) throws NegocioException {
         return ResponseEntity.status(HttpStatus.CREATED).body(tecnicoService.updateTecnico(tecnicoUUID, tecnicoNew));
     }
 
